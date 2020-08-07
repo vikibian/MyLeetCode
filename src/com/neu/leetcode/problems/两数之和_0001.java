@@ -10,7 +10,7 @@ public class 两数之和_0001 {
 
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        HashMap<int ,int> hashMap = new HashMap<int, int>();
+        HashMap<Integer ,Integer> hashMap = new HashMap<Integer, Integer>();
         for (int i=0;i<nums.length;i++){
             for (int j=i+1;j<nums.length;j++){
                 if (nums[i] + nums[j] == target){
@@ -21,7 +21,7 @@ class Solution {
 
         }
 
-        int[] result = new int[];
+        int[] result = new int[2];
         int index=0;
         for (int key :
                 hashMap.keySet()) {
