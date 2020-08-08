@@ -45,7 +45,7 @@ public class 两数相加_0002 {
 //            listNode2 = listNode2.next;
 //        }
         int rest = 0;
-        int index = 0;
+//        int index = 0;
         boolean flag = false;
         ListNode resultListNode = new ListNode(0);
 
@@ -72,20 +72,25 @@ public class 两数相加_0002 {
                 rest = result / 10;
                 flag = true;
             }else {
+                rest = 0;
                 flag = false;
             }
 
-            if (index == 0){
-                indexListNode.val = (result % 10);
-                System.err.println(result%10);
-            }else {
+//            if (index == 0){
+//                indexListNode.val = (result % 10);
+//                System.err.println(result%10);
+//            }else {
+//
+//                indexListNode.next = new ListNode(result % 10);
+//                indexListNode = indexListNode.next;
+//                System.err.println(result%10);
+//
+//            }
+//            index ++;
 
                 indexListNode.next = new ListNode(result % 10);
                 indexListNode = indexListNode.next;
-                System.err.println(result%10);
-
-            }
-            index ++;
+//                System.err.println(result%10);
 
 
             if (listNode1 != null){
@@ -102,7 +107,7 @@ public class 两数相加_0002 {
         }
 
 
-        return resultListNode;
+        return resultListNode.next;
     }
 }
 
