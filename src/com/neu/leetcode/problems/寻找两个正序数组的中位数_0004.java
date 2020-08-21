@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class 寻找两个正序数组的中位数_0004 {
     public static void main(String[] args) {
-        int[] nums1 = {};
-        int[] nums2 = {2};
-        double medianSortedArrays = findMedianSortedArrays(nums1, nums2);
+        int[] nums1 = {1,3,4,9};
+        int[] nums2 = {1,2,3,4,5,6,7,8,9};
+        double medianSortedArrays = findMedianSortedArrays3(nums1, nums2);
         System.out.println("result:"+medianSortedArrays);
 //        int a =3;
 //        int b=4;
@@ -168,7 +168,7 @@ public class 寻找两个正序数组的中位数_0004 {
     }
 
 
-        public double findMedianSortedArrays3(int[] nums1, int[] nums2) {
+        public static double findMedianSortedArrays3(int[] nums1, int[] nums2) {
             int length1 = nums1.length, length2 = nums2.length;
             int totalLength = length1 + length2;
             if (totalLength % 2 == 1) {
@@ -182,7 +182,7 @@ public class 寻找两个正序数组的中位数_0004 {
             }
         }
 
-        public int getKthElement(int[] nums1, int[] nums2, int k) {
+        public static int getKthElement(int[] nums1, int[] nums2, int k) {
             /* 主要思路：要找到第 k (k>1) 小的元素，那么就取 pivot1 = nums1[k/2-1] 和 pivot2 = nums2[k/2-1] 进行比较
              * 这里的 "/" 表示整除
              * nums1 中小于等于 pivot1 的元素有 nums1[0 .. k/2-2] 共计 k/2-1 个
@@ -200,7 +200,9 @@ public class 寻找两个正序数组的中位数_0004 {
 
             while (true) {
                 // 边界情况
+                //说明该数组中的所有元素都被排除，我们可以直接返回另一个数组中第 k 小的元素
                 if (index1 == length1) {
+                    //不只是看当一个数组为空时，也考虑到当指针移动到数组最后的情况
                     return nums2[index2 + k - 1];
                 }
                 if (index2 == length2) {
@@ -215,14 +217,82 @@ public class 寻找两个正序数组的中位数_0004 {
                 int newIndex1 = Math.min(index1 + half, length1) - 1;
                 int newIndex2 = Math.min(index2 + half, length2) - 1;
                 int pivot1 = nums1[newIndex1], pivot2 = nums2[newIndex2];
+                //如果 \text{A}[k/2-1]A[k/2−1] 或者 \text{B}[k/2-1]B[k/2−1] 越界，那么我们可以选取对应数组中的最后一个元素。在这种情况下，我们必须根据排除数的个数减少 kk 的值，而不能直接将 kk 减去 k/2k/2
+                //
                 if (pivot1 <= pivot2) {
                     k -= (newIndex1 - index1 + 1);
                     index1 = newIndex1 + 1;
                 } else {
-                    k -= (newIndex2 - index2 + 1);
+                    k -= (newIndex2 - index2 + 1);//k=k-k/2=
                     index2 = newIndex2 + 1;
                 }
             }
+        }
+
+
+        //思路同上面的解法
+    public static double findMedianSortedArrays4(int[] nums1, int[] nums2) {
+        int n = nums1.length;
+        int m = nums2.length;
+        int left = (n + m + 1) / 2;
+        int right = (n + m + 2) / 2;
+        //将偶数和奇数的情况合并，如果是奇数，会求两次同样的 k 。
+        return (getKth(nums1, 0, n - 1, nums2, 0, m - 1, left) + getKth(nums1, 0, n - 1, nums2, 0, m - 1, right)) * 0.5;
+    }
+
+    private static int getKth(int[] nums1, int start1, int end1, int[] nums2, int start2, int end2, int k) {
+        int len1 = end1 - start1 + 1;
+        int len2 = end2 - start2 + 1;
+        //让 len1 的长度小于 len2，这样就能保证如果有数组空了，一定是 len1
+        if (len1 > len2) return getKth(nums2, start2, end2, nums1, start1, end1, k);
+        if (len1 == 0) return nums2[start2 + k - 1];
+
+        if (k == 1) return Math.min(nums1[start1], nums2[start2]);
+
+        int i = start1 + Math.min(len1, k / 2) - 1;
+        int j = start2 + Math.min(len2, k / 2) - 1;
+
+        if (nums1[i] > nums2[j]) {
+            return getKth(nums1, start1, end1, nums2, j + 1, end2, k - (j - start2 + 1));
+        }
+        else {
+            return getKth(nums1, i + 1, end1, nums2, start2, end2, k - (i - start1 + 1));
+        }
+    }
+
+        //
+        public double findMedianSortedArrays5(int[] A, int[] B) {
+            int m = A.length;
+            int n = B.length;
+            if (m > n) {
+                return findMedianSortedArrays5(B,A); // 保证 m <= n
+            }
+            int iMin = 0, iMax = m;
+            while (iMin <= iMax) {
+                int i = (iMin + iMax) / 2;
+                int j = (m + n + 1) / 2 - i;
+                if (j != 0 && i != m && B[j-1] > A[i]){ // i 需要增大
+                    iMin = i + 1;
+                }
+                else if (i != 0 && j != n && A[i-1] > B[j]) { // i 需要减小
+                    iMax = i - 1;
+                }
+                else { // 达到要求，并且将边界条件列出来单独考虑
+                    int maxLeft = 0;
+                    if (i == 0) { maxLeft = B[j-1]; }
+                    else if (j == 0) { maxLeft = A[i-1]; }
+                    else { maxLeft = Math.max(A[i-1], B[j-1]); }
+                    if ( (m + n) % 2 == 1 ) { return maxLeft; } // 奇数的话不需要考虑右半部分
+
+                    int minRight = 0;
+                    if (i == m) { minRight = B[j]; }
+                    else if (j == n) { minRight = A[i]; }
+                    else { minRight = Math.min(B[j], A[i]); }
+
+                    return (maxLeft + minRight) / 2.0; //如果是偶数的话返回结果
+                }
+            }
+            return 0.0;
         }
 
 
