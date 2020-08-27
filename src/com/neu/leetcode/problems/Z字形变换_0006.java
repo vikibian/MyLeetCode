@@ -1,5 +1,8 @@
 package com.neu.leetcode.problems;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Z字形变换_0006 {
 
     public static void main(String[] args) {
@@ -80,5 +83,55 @@ public class Z字形变换_0006 {
 
         System.out.println(stringBuilder.toString());
         return stringBuilder.toString();
+    }
+
+
+    public static String convert1(String s, int numRows) {
+        if (numRows == 1){
+            return s;
+        }
+
+        List<StringBuilder> rows = new ArrayList<>();
+        for (int i=0;i<Math.min(numRows,s.length());i++){
+            rows.add( new StringBuilder());
+        }
+
+        int curRow = 0;
+        boolean goingdown = false;
+        for (char  c : s.toCharArray()){
+            rows.get(curRow).append(c);
+            if (curRow == 0 || curRow == numRows - 1 ){
+                goingdown = !goingdown;
+            }
+            curRow = curRow + (goingdown ? 1:-1);
+        }
+
+        StringBuilder ret = new StringBuilder();
+        for (StringBuilder row : rows){
+            ret.append(row);
+        }
+
+        return ret.toString();
+    }
+
+    public static String convert2(String s, int numRows) {
+        if (numRows == 1){
+            return s;
+        }
+
+       StringBuilder ret = new StringBuilder();
+        int n = s.length();
+        int cyclen = 2 * numRows - 2;
+
+        for (int i=0;i<numRows;i++){
+            for (int j=0;j+i<n;j+=cyclen){
+                ret.append(s.charAt(j+i));
+                if (i!=0 && i!= numRows - 1 && j+cyclen - i < n){
+                    ret.append(s.charAt(j + cyclen - i));
+                }
+            }
+        }
+
+        return ret.toString();
     }
 }
