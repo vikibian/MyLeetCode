@@ -34,14 +34,14 @@ public class 正则表达式匹配_0010 {
         String s8 = "aaa";
         String p8 = "ab*a*c*a";
 
-        System.out.println("false:"+isMatch(s1,p1));
-        System.out.println("true:"+isMatch(s2,p2));
-        System.out.println("true:"+isMatch(s3,p3));
-        System.out.println("true:"+isMatch(s4,p4));
-        System.out.println("false:"+isMatch(s5,p5));
-        System.out.println("true:"+isMatch(s6,p6));
-        System.out.println("false:"+isMatch(s7,p7));
-        System.out.println("true:"+isMatch(s8,p8));
+        System.out.println("false:"+isMatch2(s1,p1));
+        System.out.println("true:"+isMatch2(s2,p2));
+        System.out.println("true:"+isMatch2(s3,p3));
+        System.out.println("true:"+isMatch2(s4,p4));
+        System.out.println("false:"+isMatch2(s5,p5));
+        System.out.println("true:"+isMatch2(s6,p6));
+        System.out.println("false:"+isMatch2(s7,p7));
+        System.out.println("true:"+isMatch2(s8,p8));
 
 //        String[] split = p2.split("\\*");
 //
@@ -195,5 +195,41 @@ public class 正则表达式匹配_0010 {
         }else {
             return false;
         }
+    }
+
+    public static boolean isMatch2(String s, String p) {
+        int m = s.length();
+        int n = p.length();
+        boolean[][] f = new boolean[m+1][n+1];
+
+        f[0][0] = true;
+        for (int i=0;i<=m;i++){
+            for (int j =1;j<=n;j++){
+                if (p.charAt(j-1) == '*'){
+                    f[i][j] = f[i][j-2];
+                    if (matches(s,p,i,j-1)){
+                        f[i][j] = f[i][j] || f[i-1][j];
+                    }
+                }else {
+                    if (matches(s,p,i,j)){
+                        f[i][j] = f[i-1][j-1];
+                    }
+                }
+            }
+        }
+
+        return f[m][n];
+    }
+
+    private static boolean matches(String s, String p, int i, int j) {
+        if (i == 0){
+            return false;
+        }
+
+        if (p.charAt(j-1) == '.'){
+            return true;
+        }
+
+        return s.charAt(i-1) == p.charAt(j-1);
     }
 }
