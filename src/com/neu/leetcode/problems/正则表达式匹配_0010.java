@@ -34,14 +34,14 @@ public class 正则表达式匹配_0010 {
         String s8 = "aaa";
         String p8 = "ab*a*c*a";
 
-        System.out.println("false:"+isMatch2(s1,p1));
-        System.out.println("true:"+isMatch2(s2,p2));
-        System.out.println("true:"+isMatch2(s3,p3));
-        System.out.println("true:"+isMatch2(s4,p4));
-        System.out.println("false:"+isMatch2(s5,p5));
-        System.out.println("true:"+isMatch2(s6,p6));
-        System.out.println("false:"+isMatch2(s7,p7));
-        System.out.println("true:"+isMatch2(s8,p8));
+        System.out.println("false:"+isMatch3(s1,p1));
+        System.out.println("true:"+isMatch3(s2,p2));
+        System.out.println("true:"+isMatch3(s3,p3));
+        System.out.println("true:"+isMatch3(s4,p4));
+        System.out.println("false:"+isMatch3(s5,p5));
+        System.out.println("true:"+isMatch3(s6,p6));
+        System.out.println("false:"+isMatch3(s7,p7));
+        System.out.println("true:"+isMatch3(s8,p8));
 
 //        String[] split = p2.split("\\*");
 //
@@ -232,5 +232,18 @@ public class 正则表达式匹配_0010 {
 
         return s.charAt(i-1) == p.charAt(j-1);
 
+    }
+
+    public static boolean isMatch3(String s,String p){
+        if (p.isEmpty()){
+            return s.isEmpty();
+        }
+        boolean first = !s.isEmpty() && (p.charAt(0)==s.charAt(0) || p.charAt(0) =='.');
+
+        if (p.length() >=2 && p.charAt(1) == '*'){
+            return isMatch3(s,p.substring(2) ) || (first && isMatch3(s.substring(1),p));
+        }else {
+            return first && isMatch3(s.substring(1),p.substring(1));
+        }
     }
 }
