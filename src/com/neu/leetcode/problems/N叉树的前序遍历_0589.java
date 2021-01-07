@@ -3,7 +3,7 @@ package com.neu.leetcode.problems;
 import java.util.ArrayList;
 import java.util.List;
 
-public class N叉树的前序遍历_589 {
+public class N叉树的前序遍历_0589 {
     public List<Integer> preorder(Node root) {
         List<Integer> list = new ArrayList<>();
 
