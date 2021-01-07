@@ -2,7 +2,7 @@ package com.neu.leetcode.problems;
 
 import java.util.Map;
 
-public class 平衡二叉树_110 {
+public class 平衡二叉树_0110 {
 
     public static void main(String[] args) {
 //        TreeNode root = new TreeNode(1);
