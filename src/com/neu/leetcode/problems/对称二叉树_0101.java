@@ -1,6 +1,7 @@
 package com.neu.leetcode.problems;
 
 import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class 对称二叉树_0101 {
@@ -66,7 +67,40 @@ public class 对称二叉树_0101 {
         return stack1.isEmpty() && stack2.isEmpty();
     }
 
-class TreeNode {
+    public boolean isSymmetric1(TreeNode root){
+        return check(root,root);
+    }
+
+    private boolean check(TreeNode p, TreeNode q) {
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(p);
+        queue.add(q);
+
+        while (!queue.isEmpty()){
+            TreeNode leftNode = queue.poll();
+            TreeNode rightNode = queue.poll();
+
+            if (leftNode == null && rightNode == null){
+                continue;
+            }
+            if (leftNode == null || rightNode == null){
+                return false;
+            }
+
+            if (leftNode.val != rightNode.val){
+                return false;
+            }
+            queue.add(leftNode.left);
+            queue.add(rightNode.right);
+            queue.add(leftNode.right);
+            queue.add(rightNode.left);
+        }
+
+        return true;
+    }
+
+    class TreeNode {
      int val;
      TreeNode left;
      TreeNode right;

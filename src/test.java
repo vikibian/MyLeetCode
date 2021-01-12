@@ -1,6 +1,6 @@
 public class test {
     public static void main(String[] args) {
-
+        System.out.println(14^3);
     }
 
     public static void sort(int[] numArray, int num,int count,int gap){
