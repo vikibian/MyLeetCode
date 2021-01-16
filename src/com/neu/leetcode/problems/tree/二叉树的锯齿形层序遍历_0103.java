@@ -169,6 +169,126 @@ public class 二叉树的锯齿形层序遍历_0103 {
         return lists;
     }
 
+    //官方题解 迭代
+    public  List<List<Integer>> zigzagLevelOrder1(TreeNode root) {
+        if (root == null){
+            return new ArrayList<List<Integer>>();
+        }
+        List<List<Integer>> results = new ArrayList<>();
+        DFS(root,0,results);
+        return results;
+    }
+
+    protected void DFS(TreeNode node,int level,List<List<Integer>> results){
+        if (level == results.size()){
+            LinkedList<Integer>  newLevel = new LinkedList<>();
+            newLevel.add(node.val);
+            results.add(newLevel);
+        } else {
+            if (level % 2 ==0){
+                results.get(level).add(node.val);
+            }else {
+                results.get(level).add(0,node.val);
+            }
+        }
+
+        if (node.left != null){
+            DFS(node.left,level+1,results);
+        }
+
+        if (node.right != null){
+            DFS(node.right,level+1,results);
+        }
+    }
+
+    //官方题解 迭代
+    public List<List<Integer>> zigzagLevelOrder2(TreeNode root){
+        if (root == null){
+            return new ArrayList<List<Integer>>();
+        }
+
+        List<List<Integer>> results = new ArrayList<>();
+
+        LinkedList<TreeNode> nodelist = new LinkedList<>();
+        nodelist.addLast(root);
+        nodelist.addLast(null);
+
+        LinkedList<Integer> integerslist = new LinkedList<>();
+        boolean is_order_left = true;
+
+        while (nodelist.size() > 0){
+            TreeNode curNode = nodelist.pollFirst();
+            if (curNode != null){
+                if (is_order_left){
+                    integerslist.addLast(curNode.val);
+                } else {
+                    integerslist.addFirst(curNode.val);
+                }
+
+                if (curNode.left != null){
+                    nodelist.addLast(curNode.left);
+                }
+
+                if (curNode.right != null){
+                    nodelist.addLast(curNode.right);
+                }
+            } else {
+                //如果是分界符
+                results.add(integerslist);
+                //最好是新建一个清空的话数据可能也会清空
+                integerslist = new LinkedList<>();
+                if (nodelist.size() > 0){
+                    nodelist.addLast(null);
+                }
+                is_order_left = !is_order_left;
+            }
+
+
+        }
+
+        return results;
+    }
+
+
+    //官方题解 广度优先搜索
+    public List<List<Integer>> zigzagLevelOrder3(TreeNode root){
+        if (root == null){
+            return new ArrayList<List<Integer>>();
+        }
+
+        List<List<Integer>> results = new ArrayList<>();
+
+        Queue<TreeNode> nodeQueue = new LinkedList<>();
+        nodeQueue.offer(root);
+        boolean is_left_order = true;
+
+        while (!nodeQueue.isEmpty()){
+            Deque<Integer> levelList = new LinkedList<>();
+            int size = queue.size();
+            for (int i=0;i<size;i++){
+                TreeNode curNode = nodeQueue.poll();
+                if (is_left_order){
+                    levelList.offerLast(curNode.val);
+                } else {
+                    levelList.offerFirst(curNode.val);
+                }
+
+                if (curNode.left != null){
+                    nodeQueue.offer(curNode.left);
+                }
+
+                if (curNode.right != null){
+                    nodeQueue.offer(curNode.right);
+                }
+            }
+
+            results.add(new LinkedList<>(levelList));
+            is_left_order = !is_left_order;
+        }
+
+        return results;
+    }
+
 
    static class TreeNode {
      int val;
