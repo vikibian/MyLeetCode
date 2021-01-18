@@ -1,9 +1,6 @@
 package com.neu.leetcode.problems.tree;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class 从前序和中序遍历序列构造二叉树_0105 {
     public static void main(String[] args) {
@@ -91,6 +88,34 @@ public class 从前序和中序遍历序列构造二叉树_0105 {
         root.left = myBuildTree(preorder,inorder,preLeft +1,pIndex - inLeft + preLeft,inLeft,pIndex-1);
         root.right = myBuildTree(preorder,inorder,pIndex - inLeft + preLeft+1,preRight,pIndex+1,inRight);
 
+        return root;
+    }
+
+    //官方题解 迭代
+    public TreeNode buildTree3(int[] preorder,int[] inorder){
+        if (preorder == null || preorder.length == 0){
+            return null;
+        }
+
+        TreeNode root = new TreeNode(preorder[0]);
+        Deque<TreeNode> stack = new LinkedList<>();
+        stack.push(root);
+        int inorderIndex =0 ;
+        for (int i=1;i<preorder.length;i++){
+            int preorderVal = preorder[i];
+            TreeNode node = stack.peek();
+            if (node.val != preorder[i]){
+                node.left = new TreeNode(preorderVal);
+                stack.push(node);
+            } else {
+                while (!stack.isEmpty() && stack.peek().val == inorder[inorderIndex]){
+                    node = stack.pop();
+                    inorderIndex++;
+                }
+                node.right = new TreeNode(preorderVal);
+                stack.push(node.right);
+            }
+        }
         return root;
     }
 
