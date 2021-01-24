@@ -1,4 +1,5 @@
-package com.neu.leetcode.problems;
+package com.neu.leetcode.problems.tree;
+
 
 import java.util.ArrayList;
 import java.util.Deque;
@@ -41,4 +42,17 @@ public class 二叉树的中序遍历_0094 {
         }
         return list;
     }
+
+ public class TreeNode {
+     int val;
+     TreeNode left;
+     TreeNode right;
+     TreeNode() {}
+     TreeNode(int val) { this.val = val; }
+     TreeNode(int val, TreeNode left, TreeNode right) {
+         this.val = val;
+         this.left = left;
+         this.right = right;
+     }
+ }
 }
