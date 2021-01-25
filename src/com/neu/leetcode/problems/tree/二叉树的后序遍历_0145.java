@@ -101,6 +101,80 @@ public class 二叉树的后序遍历_0145 {
         return list;
     }
 
+    //官方题解 morris
+    public List<Integer> postorderTraversalMorris(TreeNode root){
+        List<Integer> list = new LinkedList<>();
+        if (root == null){
+            return list;
+        }
+
+        TreeNode curNode = root;
+        TreeNode tempNode = null;
+        while (curNode != null){
+            tempNode = curNode.left;
+            if (tempNode != null){
+                while (tempNode.right != null && tempNode.right != curNode){
+                    tempNode = tempNode.right;
+                }
+
+                if (tempNode.right == null){
+                    tempNode.right = curNode;
+                    curNode = curNode.left;
+                    continue;
+                }else {
+                    tempNode.right = null;
+                    addPath(list,curNode.left);
+                }
+            }
+
+            curNode = curNode.right;
+
+        }
+        addPath(list,root);
+
+        return list;
+    }
+
+    private void addPath(List<Integer> list, TreeNode node) {
+        int count  =0;
+        while (node != null){
+            count ++;
+            list.add(node.val);
+            node = node.right;
+        }
+        int left = list.size() - count,right = list.size() -1;
+        while (left <right){
+            int temp = list.get(left);
+            list.set(left,list.get(right));
+            list.set(right,temp);
+            left++;
+            right--;
+        }
+    }
+
+    //方法二 翻转二叉树
+    public void addEdge(List<Integer> list,TreeNode root){
+        TreeNode tail = reverse(root);
+        TreeNode cur = tail;
+        while (cur != null){
+            list.add(cur.val);
+            cur = cur.right;
+        }
+        reverse(tail);
+    }
+
+    private TreeNode reverse(TreeNode from) {
+        TreeNode pre = null;
+        TreeNode next = null;
+        while (from != null){
+            next = from.right;
+            from.right = pre;
+            pre = from;
+            from = next;
+        }
+        return null;
+    }
+
     public class TreeNode {
     int val;
     TreeNode left;
