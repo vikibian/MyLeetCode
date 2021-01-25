@@ -49,6 +49,38 @@ public class 二叉树的前序遍历_0144 {
         return list;
     }
 
+    //morris遍历
+    public List<Integer> preorderTraversalMorrris(TreeNode root){
+        List<Integer> list = new LinkedList<>();
+        //感觉不加root是否为null的判断也可以
+        if (root == null){
+            return list;
+        }
+        TreeNode curNode = root;
+        TreeNode tempNode = null;
+        while (curNode!= null){
+            tempNode = curNode.left;
+            if (tempNode != null){
+                while (tempNode.right != null && tempNode.right != curNode){
+                    tempNode = tempNode.right;
+                }
+                if (tempNode.right == null){
+                    list.add(curNode.val);
+                    tempNode.right = curNode;
+                    curNode = curNode.left;
+                    continue;
+                } else {
+                    tempNode.right = null;
+                }
+            } else {
+                list.add(curNode.val);
+            }
+            curNode = curNode.right;
+        }
+
+        return list;
+    }
+
     public class TreeNode {
      int val;
      TreeNode left;
