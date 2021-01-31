@@ -1,4 +1,4 @@
-package com.neu.leetcode.problems;
+package com.neu.leetcode.problems.tree;
 
 import java.util.LinkedList;
 import java.util.List;

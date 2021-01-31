@@ -1,4 +1,5 @@
-package com.neu.leetcode.problems;
+package com.neu.leetcode.problems.tree;
+
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -105,5 +106,17 @@ public class 不同二叉搜索树2_0095 {
 //    }
 
 
+   static class TreeNode {
+        TreeNode left ;
+        TreeNode right ;
+        int val ;
+
+        TreeNode(){};
+        TreeNode(int val){
+            this.val = val;
+        }
+
+
+    }
 
 }

@@ -1,6 +1,4 @@
-package com.neu.leetcode.problems;
-
-import java.util.Map;
+package com.neu.leetcode.problems.tree;
 
 public class 平衡二叉树_0110 {
 
