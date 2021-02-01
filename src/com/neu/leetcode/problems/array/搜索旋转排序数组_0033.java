@@ -12,7 +12,7 @@ public class 搜索旋转排序数组_0033 {
         return -1;
     }
 
-    //改进的二分查找算法
+    //改进的二分查找算法   也可以将下面的算法改进成迭代形式的算法 见题解视频
     public int search1(int[] nums,int target){
         int n = nums.length;
         if (n == 0){
