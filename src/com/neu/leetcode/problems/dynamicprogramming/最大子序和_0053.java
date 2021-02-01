@@ -93,4 +93,20 @@ public class 最大子序和_0053 {
         int mSum = Math.max(Math.max(l.mSum,r.mSum),l.rSum + r.lSum);
         return new Status(lSum,rSum,iSum,mSum);
     }
+
+    //第三方题解
+    public int maxSubArray4(int[] nums){
+        int ans = nums[0];
+        int sum =0;
+        for (int num : nums){
+            if (sum > 0){
+                sum += num;
+            } else {
+                sum = num;
+            }
+            ans = Math.max(ans,sum);
+        }
+
+        return ans;
+    }
 }
