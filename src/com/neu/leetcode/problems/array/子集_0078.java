@@ -42,12 +42,12 @@ public class 子集_0078 {
         int n = nums.length;
 
 
-        for (int i = (int)Math.pow(2,n);i<(int)Math.pow(2,n);i++){
+        for (int i = (int)Math.pow(2,n);i<(int)Math.pow(2,n+1);i++){
             String bitmask = Integer.toBinaryString(i).substring(1);
             List<Integer> cur = new ArrayList<>();
             for (int j=0;j<n;j++){
-                if (bitmask.charAt(i) == '1'){
-                    cur.add(nums[i]);
+                if (bitmask.charAt(j) == '1'){
+                    cur.add(nums[j]);
                 }
             }
             ans.add(cur);
@@ -69,8 +69,10 @@ public class 子集_0078 {
             ans1.add(new ArrayList<>(t1));
             return;
         }
+        //若去index位置
         t1.add(nums[index]);
         dfs(index+1,nums);
+        //若不取index位置的值
         t1.remove(t1.size()-1);
         dfs(index+1,nums);
     }
@@ -85,7 +87,7 @@ public class 子集_0078 {
             for (List<Integer> list : res){
                 List<Integer> newSubset = new ArrayList<>(list);
                 newSubset.add(num);
-                newSubsets.add(list);
+                newSubsets.add(newSubset);
             }
             res.addAll(newSubsets);
         }
