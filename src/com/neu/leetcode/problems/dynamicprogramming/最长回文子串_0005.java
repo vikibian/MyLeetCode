@@ -1,4 +1,4 @@
-package com.neu.leetcode.problems;
+package com.neu.leetcode.problems.dynamicprogramming;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
