@@ -1,4 +1,4 @@
-package com.neu.leetcode.problems;
+package com.neu.leetcode.problems.dynamicprogramming;
 
 public class 正则表达式匹配_0010 {
     public static void main(String[] args) {
@@ -19,13 +19,12 @@ public class 正则表达式匹配_0010 {
         String p4 = "c*a*b";
 
 
-
         //false
         String s5 = "mississippi";
         String p5 = "mis*is*p*.";
 
         //true
-        String s6 = "mississippi" ;
+        String s6 = "mississippi";
         String p6 = "mis*is*ip*.";
 
         //false
@@ -36,14 +35,14 @@ public class 正则表达式匹配_0010 {
         String s8 = "aaa";
         String p8 = "ab*a*c*a";
 
-        System.out.println("false:"+isMatch3(s1,p1));
-        System.out.println("true:"+isMatch3(s2,p2));
-        System.out.println("true:"+isMatch3(s3,p3));
-        System.out.println("true:"+isMatch3(s4,p4));
-        System.out.println("false:"+isMatch3(s5,p5));
-        System.out.println("true:"+isMatch3(s6,p6));
-        System.out.println("false:"+isMatch3(s7,p7));
-        System.out.println("true:"+isMatch3(s8,p8));
+        System.out.println("false:" + isMatch3(s1, p1));
+        System.out.println("true:" + isMatch3(s2, p2));
+        System.out.println("true:" + isMatch3(s3, p3));
+        System.out.println("true:" + isMatch3(s4, p4));
+        System.out.println("false:" + isMatch3(s5, p5));
+        System.out.println("true:" + isMatch3(s6, p6));
+        System.out.println("false:" + isMatch3(s7, p7));
+        System.out.println("true:" + isMatch3(s8, p8));
 
 //        String[] split = p2.split("\\*");
 //
@@ -55,10 +54,9 @@ public class 正则表达式匹配_0010 {
     public static boolean isMatch(String s, String p) {
 
         //不包含* 则进行长度判断 长度不等则一定是false
-        if (!p.contains("*")){
+        if (!p.contains("*")) {
             return p.length() == s.length() ? true : false;
         }
-
 
 
         String[] split = p.split("\\*");
@@ -70,39 +68,36 @@ public class 正则表达式匹配_0010 {
 //        String targetPre = "";
 //        String targetSuffix = "";
 
-        for (int i=0;i<split.length;i++){
-            target=split[i];
+        for (int i = 0; i < split.length; i++) {
+            target = split[i];
 //            targetSuffix = split[i].substring(split[i].length()-1,split[i].length());
 //            targetPre = split[i].substring(0,split[i].length()-1);
 
             int l = 0;
-            while (l<target.length()){
-                if (l != target.length() -1){
-                    if (target.charAt(l) == s.charAt(head)){
+            while (l < target.length()) {
+                if (l != target.length() - 1) {
+                    if (target.charAt(l) == s.charAt(head)) {
                         l++;
                         head++;
-                    }else {
+                    } else {
                         return false;
                     }
-                }else {
+                } else {
 
 
-                    if (head<s.length() && (target.charAt(l) == s.charAt(head) || target.charAt(l) == '.' )){
+                    if (head < s.length() && (target.charAt(l) == s.charAt(head) || target.charAt(l) == '.')) {
                         //判断是否是最后一个数组
-                        if (i == split.length-1 && p.charAt(p.length()-1) != '*'){
+                        if (i == split.length - 1 && p.charAt(p.length() - 1) != '*') {
                             //最后不是*则l需要加一 否则不加
                             head++;
                             l++;
-                        }
-                        else {
+                        } else {
                             head++;
                         }
 
-                    }
-                    else if (head == s.length() && p.charAt(p.length()-1) != '*' && p.charAt(p.length()-1) != '.' && p.charAt(p.length()-1) != s.charAt(head-1) ){
+                    } else if (head == s.length() && p.charAt(p.length() - 1) != '*' && p.charAt(p.length() - 1) != '.' && p.charAt(p.length() - 1) != s.charAt(head - 1)) {
                         return false;
-                    }
-                    else {
+                    } else {
                         //break while
                         l++;
                     }
@@ -192,9 +187,9 @@ public class 正则表达式匹配_0010 {
 //
 //        }
 
-        if (head == s.length() ){
+        if (head == s.length()) {
             return true;
-        }else {
+        } else {
             return false;
         }
     }
@@ -202,52 +197,51 @@ public class 正则表达式匹配_0010 {
     public static boolean isMatch2(String s, String p) {
         int m = s.length();
         int n = p.length();
-        boolean[][] f = new boolean[m+1][n+1];
+        boolean[][] f = new boolean[m + 1][n + 1];
 
         f[0][0] = true;
-        for (int i=0;i<=m;i++){
-            for (int j =1;j<=n;j++){
-                if (p.charAt(j-1) == '*'){
-                    f[i][j] = f[i][j-2];
-                    if (matches(s,p,i,j-1)){
-                        f[i][j] = f[i][j] || f[i-1][j];
+        for (int i = 0; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (p.charAt(j - 1) == '*') {
+                    f[i][j] = f[i][j - 2];
+                    if (matches(s, p, i, j - 1)) {
+                        f[i][j] = f[i][j] || f[i - 1][j];
                     }
-                }else {
-                    if (matches(s,p,i,j)){
-                        f[i][j] = f[i-1][j-1];
+                } else {
+                    if (matches(s, p, i, j)) {
+                        f[i][j] = f[i - 1][j - 1];
                     }
                 }
             }
         }
 
 
-
         return f[m][n];
     }
 
     private static boolean matches(String s, String p, int i, int j) {
-        if (i == 0){
+        if (i == 0) {
             return false;
         }
 
-        if (p.charAt(j-1) == '.'){
+        if (p.charAt(j - 1) == '.') {
             return true;
         }
 
-        return s.charAt(i-1) == p.charAt(j-1);
+        return s.charAt(i - 1) == p.charAt(j - 1);
 
     }
 
-    public static boolean isMatch3(String s,String p){
-        if (p.isEmpty()){
+    public static boolean isMatch3(String s, String p) {
+        if (p.isEmpty()) {
             return s.isEmpty();
         }
-        boolean first = !s.isEmpty() && (p.charAt(0)==s.charAt(0) || p.charAt(0) =='.');
+        boolean first = !s.isEmpty() && (p.charAt(0) == s.charAt(0) || p.charAt(0) == '.');
 
-        if (p.length() >=2 && p.charAt(1) == '*'){
-            return isMatch3(s,p.substring(2) ) || (first && isMatch3(s.substring(1),p));
-        }else {
-            return first && isMatch3(s.substring(1),p.substring(1));
+        if (p.length() >= 2 && p.charAt(1) == '*') {
+            return isMatch3(s, p.substring(2)) || (first && isMatch3(s.substring(1), p));
+        } else {
+            return first && isMatch3(s.substring(1), p.substring(1));
         }
     }
 }
