@@ -1,6 +1,4 @@
-package com.neu.leetcode.problems;
-
-import java.util.Stack;
+package com.neu.leetcode.problems.math;
 
 public class 两数相加_0002 {
     public static void main(String[] args) {
