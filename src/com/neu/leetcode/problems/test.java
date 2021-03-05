@@ -1,9 +1,6 @@
 package com.neu.leetcode.problems;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 public class test {
     public static void main(String[] args) {
@@ -41,5 +38,7 @@ public class test {
 
         String str = "AB";
         System.out.println(str.substring(0,2));
+        Deque<Integer> deque = new LinkedList<>();
+        System.out.println(deque.contains(1));
     }
 }
