@@ -40,5 +40,10 @@ public class test {
         System.out.println(str.substring(0,2));
         Deque<Integer> deque = new LinkedList<>();
         System.out.println(deque.contains(1));
+
+        String str1 = " ";
+        String[] s = str1.split(" ");
+        System.out.println(s.length);
+
     }
 }
