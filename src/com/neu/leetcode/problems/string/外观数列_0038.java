@@ -60,5 +60,6 @@ public class 外观数列_0038 {
             }
         }
         return ans.toString();
+
     }
 }
