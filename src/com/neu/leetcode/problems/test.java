@@ -44,6 +44,10 @@ public class test {
         String str1 = " ";
         String[] s = str1.split(" ");
         System.out.println(s.length);
+        System.out.println(Integer.MIN_VALUE>= -2147483648);
+        System.out.println(0 > -2147483648);
+        System.out.println((int)-2147483648);
+        System.out.println(Integer.MAX_VALUE);
 
     }
 }
