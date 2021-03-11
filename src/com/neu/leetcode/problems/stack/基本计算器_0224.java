@@ -235,7 +235,7 @@ public class 基本计算器_0224 {
                     int u=0;
                     int j=i;
                     while (j<n &&Character.isDigit(cs[j])){
-                        u = u*10+(cs[j++] = '0');
+                        u = u*10+(cs[j++] - '0');
                     }
                     nums.addLast(u);
                     i = j-1;
