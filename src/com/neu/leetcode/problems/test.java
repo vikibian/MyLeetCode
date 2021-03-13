@@ -49,5 +49,11 @@ public class test {
         System.out.println((int)-2147483648);
         System.out.println(Integer.MAX_VALUE);
 
+        String a = "a good  example";
+        System.out.println(a);
+        String[] s1 = a.split(" ");
+        System.out.println(s1[2]);
+        System.out.println(s1[3]);
+
     }
 }
