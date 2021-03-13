@@ -55,5 +55,7 @@ public class test {
         System.out.println(s1[2]);
         System.out.println(s1[3]);
 
+        List<Integer> list = new LinkedList<>();
+
     }
 }
