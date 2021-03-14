@@ -1,4 +1,4 @@
-package com.neu.leetcode.problems;
+package com.neu.leetcode.problems.math;
 
 import com.sun.prism.shader.Solid_TextureYV12_AlphaTest_Loader;
 

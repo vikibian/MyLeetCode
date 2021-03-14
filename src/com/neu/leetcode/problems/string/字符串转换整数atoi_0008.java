@@ -1,4 +1,4 @@
-package com.neu.leetcode.problems;
+package com.neu.leetcode.problems.string;
 
 public class 字符串转换整数atoi_0008 {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.neu.leetcode.problems;
+package com.neu.leetcode.problems.math;
 
 public class 回文数_0009 {
     public static void main(String[] args) {
