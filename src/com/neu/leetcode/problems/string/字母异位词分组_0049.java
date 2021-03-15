@@ -1,7 +1,6 @@
 package com.neu.leetcode.problems.string;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class 字母异位词分组_0049 {
 
@@ -70,5 +69,45 @@ public class 字母异位词分组_0049 {
 
         }
         return listList;
+    }
+
+    //官方题解 排序
+    public List<List<String>> groupAnagrams1(String[] strs) {
+        Map<String ,List<String>> map = new HashMap<>();
+        for (String str : strs){
+            char[] charArray = str.toCharArray();
+            Arrays.sort(charArray);
+            String key = new String(charArray);
+            List<String> list = map.getOrDefault(key,new ArrayList<>());
+            list.add(str);
+            map.put(key,list);
+        }
+
+        return new ArrayList<List<String>>(map.values());
+    }
+
+    //官方题解 计数
+    public List<List<String>> groupAnagrams2(String[] strs) {
+        Map<String,List<String>> map = new HashMap<>();
+        for (String str : strs){
+            int[] count = new int[26];
+            int len = str.length();
+            for (int i=0;i<len;i++){
+                count[str.charAt(i)-'a']++;
+            }
+
+            StringBuffer sb = new StringBuffer();
+            for (int i=0;i<26;i++){
+                if (count[i] != 0){
+                    sb.append((char)'a'+i);
+                    sb.append(count[i]);
+                }
+            }
+            String key = sb.toString();
+            List<String> list = map.getOrDefault(key,new ArrayList<>());
+            list.add(str);
+            map.put(key,list);
+        }
+        return new ArrayList<>(map.values());
     }
 }
