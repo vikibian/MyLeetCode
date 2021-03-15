@@ -56,6 +56,15 @@ public class test {
         System.out.println(s1[3]);
 
         List<Integer> list = new LinkedList<>();
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.indexOf(String.valueOf(str.charAt(0)));
 
+        list.add(11);
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        System.out.println(list.toString());
+        list.remove(0);
+        System.out.println(list.toString());
     }
 }
