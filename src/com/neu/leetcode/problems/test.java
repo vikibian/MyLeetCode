@@ -9,6 +9,7 @@ public class test {
         map.put("1", "value1");
         map.put("2", "value2");
         map.put("3", "value3");
+        map.containsKey("1");
 
 //        //第一种：普遍使用，二次取值
 //        System.out.println("通过Map.keySet遍历key和value：");
@@ -58,13 +59,18 @@ public class test {
         List<Integer> list = new LinkedList<>();
         StringBuffer stringBuffer = new StringBuffer();
         stringBuffer.indexOf(String.valueOf(str.charAt(0)));
-
+        List<Integer> list1 = new ArrayList<>();
         list.add(11);
         list.add(1);
         list.add(2);
         list.add(3);
+        Collections.sort(list);
         System.out.println(list.toString());
         list.remove(0);
         System.out.println(list.toString());
+
+        int x = -2147483648;
+        System.out.println(x>=0);
+        System.out.println(Math.abs(x));
     }
 }
