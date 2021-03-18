@@ -64,6 +64,7 @@ public class test {
         list.add(1);
         list.add(2);
         list.add(3);
+
         Collections.sort(list);
         System.out.println(list.toString());
         list.remove(0);
