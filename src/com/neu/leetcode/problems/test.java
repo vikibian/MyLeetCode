@@ -73,5 +73,11 @@ public class test {
         int x = -2147483648;
         System.out.println(x>=0);
         System.out.println(Math.abs(x));
+
+        System.out.println(675/26);
+        System.out.println(675%26);
+        System.out.println((2147483647%26));
+        System.out.println((2147483647-23)%26);
+//        System.out.println((1+'A'));
     }
 }
