@@ -79,5 +79,7 @@ public class test {
         System.out.println((2147483647%26));
         System.out.println((2147483647-23)%26);
 //        System.out.println((1+'A'));
+        String test = "ABC";
+        System.out.println(test.substring(2,3));
     }
 }
