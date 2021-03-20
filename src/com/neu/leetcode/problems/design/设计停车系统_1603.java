@@ -5,6 +5,7 @@ import java.util.List;
 
 public class 设计停车系统_1603 {
     class ParkingSystem {
+
         private int bigSize;
         private int midSize;
         private int smallSize;
@@ -49,4 +50,41 @@ public class 设计停车系统_1603 {
             return false;
         }
     }
+
+    class ParkingSystem1 {
+
+        private int bigSize;
+        private int midSize;
+        private int smallSize;
+
+
+        public ParkingSystem1(int big, int medium, int small) {
+            this.bigSize = big;
+            this.midSize = medium;
+            this.smallSize = small;
+
+        }
+
+        public boolean addCar(int carType) {
+            switch (carType){
+                case 1:
+                    if (bigSize>0){
+                        bigSize--;
+                        return true;
+                    }
+                case 2:
+                    if (midSize>0){
+                        midSize--;
+                        return true;
+                    }
+                case 3:
+                    if (smallSize>0){
+                        smallSize--;
+                        return true;
+                    }
+            }
+            return false;
+        }
+    }
+
 }
