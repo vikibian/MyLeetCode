@@ -81,5 +81,14 @@ public class test {
 //        System.out.println((1+'A'));
         String test = "ABC";
         System.out.println(test.substring(2,3));
+
+        String num1 = "01",num2 = "001";
+        System.out.println("string转int");
+        System.out.println(Integer.valueOf(num1));
+        System.out.println(Integer.valueOf(num2));
+        String string = "0.1";
+        String[] split = string.split("\\.");
+        System.out.println(split.length);
+
     }
 }

@@ -75,6 +75,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P165CompareVersionNumbers .java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P165CompareVersionNumbers .java" />
+              <option name="questionId" value="165" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P166FractionToRecurringDecimal .java">
           <value>
             <LeetcodeEditor>
@@ -83,11 +91,27 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P167TwoSumIiInputArrayIsSorted .java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P167TwoSumIiInputArrayIsSorted .java" />
+              <option name="questionId" value="167" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P168ExcelSheetColumnTitle .java">
           <value>
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P168ExcelSheetColumnTitle .java" />
               <option name="questionId" value="168" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P169MajorityElement .java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P169MajorityElement .java" />
+              <option name="questionId" value="169" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -104,6 +128,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P179LargestNumber .java" />
               <option name="questionId" value="179" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P189RotateArray .java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P189RotateArray .java" />
+              <option name="questionId" value="189" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -219,6 +251,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P459RepeatedSubstringPattern .java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P459RepeatedSubstringPattern .java" />
+              <option name="questionId" value="459" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P49GroupAnagrams .java">
           <value>
             <LeetcodeEditor>
@@ -248,6 +288,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P50PowxN .java" />
               <option name="questionId" value="50" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P520DetectCapital .java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P520DetectCapital .java" />
+              <option name="questionId" value="520" />
             </LeetcodeEditor>
           </value>
         </entry>
