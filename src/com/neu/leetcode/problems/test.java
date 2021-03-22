@@ -9,6 +9,7 @@ public class test {
         map.put("1", "value1");
         map.put("2", "value2");
         map.put("3", "value3");
+        map.containsKey("1");
 
 //        //第一种：普遍使用，二次取值
 //        System.out.println("通过Map.keySet遍历key和value：");
@@ -56,6 +57,44 @@ public class test {
         System.out.println(s1[3]);
 
         List<Integer> list = new LinkedList<>();
+        StringBuffer stringBuffer = new StringBuffer();
+        stringBuffer.indexOf(String.valueOf(str.charAt(0)));
+        List<Integer> list1 = new ArrayList<>();
+        list.add(11);
+        list.add(1);
+        list.add(2);
+        list.add(3);
 
+        Collections.sort(list);
+        System.out.println(list.toString());
+        list.remove(0);
+        System.out.println(list.toString());
+
+        int x = -2147483648;
+        System.out.println(x>=0);
+        System.out.println(Math.abs(x));
+
+        System.out.println(675/26);
+        System.out.println(675%26);
+        System.out.println((2147483647%26));
+        System.out.println((2147483647-23)%26);
+//        System.out.println((1+'A'));
+        String test = "ABC";
+        System.out.println(test.substring(2,3));
+
+        String num1 = "01",num2 = "001";
+        System.out.println("string转int");
+        System.out.println(Integer.valueOf(num1));
+        System.out.println(Integer.valueOf(num2));
+        String string = "0.1";
+        String[] split = string.split("\\.");
+        System.out.println(split.length);
+        System.out.println("位运算");
+        int n = 00000000000000000000000000001011;
+        int num = 0;
+        System.out.println(n&2);
+
+        System.out.println("int 转 char");
+        System.out.println((char)1);
     }
 }
