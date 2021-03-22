@@ -89,6 +89,12 @@ public class test {
         String string = "0.1";
         String[] split = string.split("\\.");
         System.out.println(split.length);
+        System.out.println("位运算");
+        int n = 00000000000000000000000000001011;
+        int num = 0;
+        System.out.println(n&2);
 
+        System.out.println("int 转 char");
+        System.out.println((char)1);
     }
 }
