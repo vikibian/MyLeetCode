@@ -47,7 +47,7 @@ public class 去除重复字母_0316 {
             if (visited[chars[i]-'a']){
                 continue;
             }
-            while (!stack.isEmpty() && stack.peekLast()>chars[i] && lastIndex[stack.peekLast()-'a'] != i){
+            while (!stack.isEmpty() && stack.peekLast()>chars[i] && lastIndex[stack.peekLast()-'a'] > i){
                 Character top = stack.removeLast();
                 visited[top-'a'] = false;
             }
