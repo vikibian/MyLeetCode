@@ -96,5 +96,8 @@ public class test {
 
         System.out.println("int 转 char");
         System.out.println((char)1);
+
+        System.out.println("-------");
+        System.out.println((31>>4) & (1));
     }
 }
