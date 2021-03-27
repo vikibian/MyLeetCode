@@ -24,4 +24,20 @@ public class 赎金信_0383 {
         }
         return true;
     }
+
+    //java 高分题解
+    public boolean canConstruct1(String ransomNote, String magazine) {
+        if (magazine.length() < ransomNote.length()) {
+            return false;
+        }
+        int[] caps = new int[26];
+        for (char c : ransomNote.toCharArray()) {
+            int index = magazine.indexOf(c,caps[c-'a']);
+            if (index == -1){
+                return false;
+            }
+            caps[c-97] = index+1;
+        }
+        return true;
+    }
 }
