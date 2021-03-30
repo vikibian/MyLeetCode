@@ -1,5 +1,6 @@
 package com.neu.leetcode.problems;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 public class test {
@@ -99,5 +100,17 @@ public class test {
 
         System.out.println("-------");
         System.out.println((31>>4) & (1));
+
+        BigDecimal bigDecimalA = new BigDecimal(1);
+        BigDecimal bigDecimalB = new BigDecimal(3);
+        System.out.println("BigDecimal");
+//        System.out.println(bigDecimalA.divide(bigDecimalB));
+//        System.out.println(String.valueOf(1/3));
+        double ans = 0;
+        ans = 4/333.0;
+        System.out.println("ans:"+ans);
+        System.out.println(String.valueOf(ans));
+        System.out.println(String.valueOf(ans).split("\\.").length);
+        System.out.println(Arrays.toString(String.valueOf(ans).split("\\.")));
     }
 }
