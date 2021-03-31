@@ -67,7 +67,7 @@ public class 计数质数_0204 {
             if (isPrime[i] == 1){
                 ans++;
                 if ((long) i*i <n){
-                    for (int j =i*i;j<n;j++){
+                    for (int j =i*i;j<n;j+=i){
                         isPrime[j] = 0;
                     }
                 }
