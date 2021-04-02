@@ -184,4 +184,59 @@ public class 接雨水_0042 {
 
         return ans;
     }
+
+    //我的解法二
+    public int trap5(int[] height) {
+        if (height == null || height.length == 0){
+            return 0;
+        }
+        int len = height.length;
+        Deque<Integer> stack = new LinkedList<>();
+        stack.push(0);
+        int index = 0;
+        int memo = 0;
+        int ans = 0;
+        for (int i=0;i<len;i++){
+            int num = height[i];
+            if (num >= index){
+                int min = Math.min(index,num);
+                while (stack.peek() != index){
+                    ans += (min - stack.pop());
+                }
+                stack.pop();
+                index = num;
+                memo = i;
+                stack.push(num);
+            } else {
+                stack.push(num);
+            }
+//            System.out.println("i:"+i+"  stack:"+stack.toString());
+        }
+        //需要判断index和height的大小
+        if (memo != len-1){
+            System.out.println(false);
+            Deque<Integer> stack2 = new LinkedList<>();
+            stack2.push(0);
+            int index2 = 0;
+
+            while (!stack.isEmpty()){
+                int num = stack.pop();
+                if (num >= index2){
+                    int min = Math.min(index2,num);
+                    while (stack2.peek() != index2){
+                        ans += (min - stack2.pop());
+                    }
+                    stack2.pop();
+                    index2 = num;
+                    stack2.push(num);
+                } else {
+                    stack2.push(num);
+                }
+            }
+        } else {
+            System.out.println(true);
+        }
+        System.out.println(stack.toString());
+        return ans;
+    }
 }
