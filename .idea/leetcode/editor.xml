@@ -91,6 +91,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P160IntersectionOfTwoLinkedLists .java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P160IntersectionOfTwoLinkedLists .java" />
+              <option name="questionId" value="160" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P165CompareVersionNumbers .java">
           <value>
             <LeetcodeEditor>
@@ -203,6 +211,14 @@
             </LeetcodeEditor>
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P278FirstBadVersion .java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P278FirstBadVersion .java" />
+              <option name="questionId" value="278" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P28ImplementStrstr .java">
           <value>
             <LeetcodeEditor>
@@ -248,6 +264,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P316RemoveDuplicateLetters .java" />
               <option name="questionId" value="316" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P326PowerOfThree .java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P326PowerOfThree .java" />
+              <option name="questionId" value="326" />
             </LeetcodeEditor>
           </value>
         </entry>
@@ -448,6 +472,14 @@
             <LeetcodeEditor>
               <option name="path" value="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P71SimplifyPath .java" />
               <option name="questionId" value="71" />
+            </LeetcodeEditor>
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P781RabbitsInForest .java">
+          <value>
+            <LeetcodeEditor>
+              <option name="path" value="$PROJECT_DIR$/../TempLeetCode/leetcode/editor/cn/P781RabbitsInForest .java" />
+              <option name="questionId" value="797" />
             </LeetcodeEditor>
           </value>
         </entry>
