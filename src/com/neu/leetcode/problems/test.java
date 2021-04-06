@@ -114,7 +114,8 @@ public class test {
         System.out.println(Arrays.toString(String.valueOf(ans).split("\\.")));
 
         System.out.println("测试平方");
-        System.out.println((int)Math.sqrt(12));
+        System.out.println(Math.sqrt(6));
+        System.out.println(12%9);
         System.out.println(Math.sqrt(16));
 
     }

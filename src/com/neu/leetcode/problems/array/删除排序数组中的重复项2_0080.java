@@ -192,4 +192,37 @@ public class 删除排序数组中的重复项2_0080 {
 
         return index1+1;
     }
+
+    //二次刷题的官方题解
+    public int removeDuplicates3(int[] nums) {
+        int n = nums.length;
+        if (n<2){
+            return n;
+        }
+        int slow=2,fast = 2;
+        while (fast<n){
+            if (nums[slow-2] != nums[fast]){
+                nums[slow] = nums[fast];
+                slow++;
+            }
+            fast++;
+        }
+        return slow;
+    }
+
+    //高分题解 宫水三叶
+    public int removeDuplicates4(int[] nums){
+        return process(nums,2);
+    }
+
+    private int process(int[] nums, int k) {
+        int u =0;
+        for (int x : nums){
+            if (u<k || nums[u-k] != x){
+                nums[u++] = x;
+            }
+        }
+        return u;
+    }
+
 }
