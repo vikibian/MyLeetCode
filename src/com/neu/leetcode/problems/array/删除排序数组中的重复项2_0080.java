@@ -158,4 +158,38 @@ public class 删除排序数组中的重复项2_0080 {
 
         return j;
     }
+
+    //二次题解 双指针
+    public int removeDuplicates2(int[] nums) {
+        int len = nums.length;
+        int index1=0,index2 = 0;
+        int count = 0;
+        int ans =0;
+        while (index2<len){
+            if (nums[index1] == nums[index2]){
+                count++;
+                if (count == 2){
+                    count = 0;
+                    while (index2<len && nums[index1] == nums[index2]){
+                        index2++;
+                    }
+                    index1++;
+                    nums[index1] = nums[index2-1];
+                    count++;
+                }else {
+                    index2++;
+                }
+            } else {
+                count=0;
+                index1++;
+                nums[index1] = nums[index2];
+                index2++;
+                count++;
+            }
+
+        }
+
+
+        return index1+1;
+    }
 }
