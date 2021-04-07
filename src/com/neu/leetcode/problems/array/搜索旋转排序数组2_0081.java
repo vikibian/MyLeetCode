@@ -60,4 +60,90 @@ public class 搜索旋转排序数组2_0081 {
         }
         return false;
     }
+
+    //二次刷题
+    public boolean search2(int[] nums, int target) {
+        if (nums == null || nums.length == 0){
+            return false;
+        }
+        int len = nums.length;
+        int targetIndex = -1;
+        for (int i=1;i<len;i++){
+            if (nums[i] < nums[i-1]){
+                targetIndex = i-1;
+                break;
+            }
+        }
+        System.out.println("targetIndex:"+targetIndex);
+        if (targetIndex == -1){
+            targetIndex = len-1;
+        }
+        int ans = 0;
+        if (nums[0] <= target){
+            ans = binarySearch(nums,targetIndex,target,0);
+        } else {
+            ans = binarySearch(nums,targetIndex,target,1);
+        }
+
+        return ans != -1;
+    }
+
+    private int binarySearch(int[] nums,int startIndex,int target,int type){
+        int res= -1;
+        int low = 0,high = 0;
+        if (type == 0){
+            low = 0;
+            high = startIndex;
+        } else {
+            low = startIndex+1;
+            high = nums.length-1;
+        }
+
+        while (low<= high){
+            int mid = (low+high)/2;
+            if (nums[mid] == target){
+                return mid;
+            } else if (nums[mid] > target){
+                high = mid-1;
+            } else {
+                low = mid+1;
+            }
+        }
+        return res;
+    }
+
+    //官方题解
+    public boolean search3(int[] nums, int target) {
+        int n = nums.length;
+        if (n == 0){
+            return false;
+        }
+        if (n == 1){
+            return nums[0] == target;
+        }
+        int l =0,r = n-1;
+        while (l<=r){
+            int mid = (l+r)/2;
+            if (nums[mid] == target){
+                return true;
+            }
+            if (nums[l] == nums[mid] && nums[r] == nums[mid]){
+                r--;
+                l++;
+            } else if (nums[l] <= nums[mid]){
+                if (nums[l] <= nums[target] && target<nums[mid] ){
+                    r = mid -1;
+                } else {
+                    l = mid+1;
+                }
+            } else {
+                if (target>nums[mid] && target <= nums[n]){
+                    l = mid +1;
+                } else {
+                    r = mid - 1;
+                }
+            }
+        }
+        return false;
+    }
 }
