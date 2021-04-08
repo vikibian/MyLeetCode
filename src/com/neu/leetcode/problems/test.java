@@ -118,5 +118,12 @@ public class test {
         System.out.println(12%9);
         System.out.println(Math.sqrt(16));
 
+        System.out.println("查看最小值");
+        System.out.println(Integer.MIN_VALUE < -(int)Math.pow(2,31));
+        System.out.println(Long.MIN_VALUE);
+        int a1 = 0;
+        long b1 = 0;
+        System.out.println(a1<b1);
+
     }
 }
