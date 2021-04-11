@@ -1,9 +1,6 @@
 package com.neu.leetcode.problems.math;
 
-import java.util.Deque;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class 丑数2_0264 {
     //超时
@@ -100,5 +97,25 @@ public class 丑数2_0264 {
     public Ugly2 ugly2 = new Ugly2();
     public int nthUglyNumber2(int n){
         return ugly2.nums[n-1];
+    }
+
+    public int nthUglyNumber3(int n){
+        int[] factors = {2,3,5};
+        Set<Long> seen = new HashSet<>();
+        PriorityQueue<Long> heap = new PriorityQueue<>();
+        seen.add(1L);
+        heap.offer(1L);
+        int ugly = 0;
+        for (int i=0;i<n;i++){
+            long curr = heap.poll();
+            ugly = (int) curr;
+            for (int num : factors){
+                long next = num*ugly;
+                if (seen.add(next)){
+                    heap.offer(next);
+                }
+            }
+        }
+        return ugly;
     }
 }
