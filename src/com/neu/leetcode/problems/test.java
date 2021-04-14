@@ -124,6 +124,8 @@ public class test {
         int a1 = 0;
         long b1 = 0;
         System.out.println(a1<b1);
+        Set<String> set = new HashSet<>();
+
 
     }
 }
